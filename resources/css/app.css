@@ -1,0 +1,215 @@
+@import 'tailwindcss';
+@import './pages/home.css';
+@import "pages/projects.css";
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Source Sans 3', Arial, sans-serif;
+}
+
+:root {
+    --background: #141013;
+    --surface: #1D161B;
+    --text: #F4F1F3;
+    --text-muted: #D2C6CF;
+    --accent: #BCA9B7;
+    --button-primary-bg: #A58D9F;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    font-family: var(--font-sans), sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.65;
+    @media (min-width: 768px) {
+        font-size: 18px;
+    }
+}
+
+main {
+    padding-block: 64px;
+
+    @media (min-width: 768px) {
+        padding-block: 96px;
+    }
+}
+
+.skip-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: var(--surface);
+    border-radius: 6px;
+    color: var(--text);
+    padding: 10px;
+    transform: translateY(-200%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+
+a {
+    color: var(--accent);
+}
+
+h1, h2, h3 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+h1 {
+    font-size: 42px;
+    margin-bottom: 24px;
+    @media (min-width: 768px) {
+        font-size: 64px;
+    }
+}
+
+h2 {
+    font-size: 32px;
+    @media (min-width: 768px) {
+        font-size: 40px;
+    }
+}
+
+h3 {
+    font-size: 24px;
+    @media (min-width: 768px) {
+        font-size: 28px;
+    }
+}
+
+.site-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding-inline: 20px;
+
+    @media (min-width: 768px) {
+        padding-inline: 24px;
+    }
+}
+
+a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.button {
+    display: inline-flex;
+    border-radius: 9999px;
+    padding: 8px 24px;
+    min-height: 44px;
+    font-weight: 600;
+    align-items: center;
+    justify-content: center;
+}
+
+.button--primary {
+    background-color: var(--button-primary-bg);
+    color: var(--background);
+}
+
+.button--primary:hover {
+    background-color: var(--accent);
+}
+
+.button--secondary {
+    background: transparent;
+    border: solid 1px #725A6C;
+    color: var(--accent);
+}
+
+.button--secondary:hover {
+    background-color: #392D36;
+}
+
+.site-brand {
+    padding-inline: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding-block: 16px;
+    font-weight: 600;
+    flex-wrap: wrap;
+}
+
+header::after, footer::before{
+    content: "";
+    display: block;
+    max-width: 1120px;
+    margin-inline: auto;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg,rgba(75, 59, 71, 0) 0%, rgba(75, 59, 71, 1) 50%, rgba(75, 59, 71, 0) 100%);
+    border-radius: 9999px;
+}
+
+nav ul {
+    display: flex;
+    gap: 24px;
+}
+
+nav ul .button {
+    color: var(--text-muted);
+}
+
+nav ul .nav-link--active {
+    color: var(--accent);
+    text-decoration: underline 2px;
+    text-underline-offset: 4px;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .nav-links {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+    }
+
+    .nav-links--open {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+footer .site-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-block: 24px;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+footer ul {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+footer ul a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
